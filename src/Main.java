@@ -8,6 +8,7 @@ public  class Main {
         ArrayList<Pessoa> pessoas = new ArrayList<>();
         ArrayList<Produto> produtos = new ArrayList<>();
         ArrayList<Usuario> usuarios = new ArrayList<>();
+        ArrayList<Venda> vendas = new ArrayList<>();
         usuarios.add(new Usuario("admin", "102030"));
 
         Login(usuarios, teclado);
@@ -18,6 +19,7 @@ public  class Main {
             System.out.println("+========= MENU PRINCIPAL =========+");
             System.out.println("1. Menu de Clientes");
             System.out.println("2. Menu de Produtos");
+            System.out.println("3. Consulta de Vendas");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcaoGeral = teclado.nextInt();
@@ -30,6 +32,7 @@ public  class Main {
                 case 2:
                     menuProdutos(produtos, teclado);
                     break;
+
                 case 0:
                     System.out.println("Saindo do sistema...");
                     break;
@@ -171,7 +174,7 @@ public  class Main {
             }
         }
 
-        Produto prod = new Produto(nome, idProduto, tipoProduto, estoqueAtual, preco);
+        Produto prod = new Produto(nome, idProduto, tipoProduto, preco, estoqueAtual);
         produtos.add(prod);
         System.out.println("Produto cadastrado com sucesso!");
     }
@@ -272,5 +275,7 @@ public  class Main {
 
         }
         System.out.println("Login realizado com sucesso.");
+
+
     }
 }

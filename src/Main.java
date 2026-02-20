@@ -147,7 +147,7 @@ public  class Main {
 
     public static void cadastrarProduto(ArrayList <Produto> produtos, Scanner teclado) {
         System.out.println("Digite o nome do produto: ");
-        String nomeProduto = teclado.nextLine();
+        String nome = teclado.nextLine();
 
         System.out.println("Digite o código do produto: ");
         int idProduto = teclado.nextInt();
@@ -157,10 +157,10 @@ public  class Main {
         String tipoProduto = teclado.nextLine();
 
         System.out.println("Digite a quantidade em estoque: ");
-        int qtdProduto = teclado.nextInt();
+        int estoqueAtual = teclado.nextInt();
         teclado.nextLine();
         System.out.println("Digite o valor unitário do produto: ");
-        double valorUnitario = teclado.nextDouble();
+        double preco = teclado.nextDouble();
 
 
 
@@ -171,7 +171,7 @@ public  class Main {
             }
         }
 
-        Produto prod = new Produto(nomeProduto, idProduto, tipoProduto, qtdProduto, valorUnitario);
+        Produto prod = new Produto(nome, idProduto, tipoProduto, estoqueAtual, preco);
         produtos.add(prod);
         System.out.println("Produto cadastrado com sucesso!");
     }
@@ -224,7 +224,7 @@ public  class Main {
             case 1:
                 System.out.println("1. Digite o novo nome do produto: ");
                 String novoNome = teclado.nextLine();
-                prodSelecionado.setNomeProduto(novoNome);
+                prodSelecionado.setNome(novoNome);
                 System.out.println("Nome atualizado com sucesso.");
                 break;
             case 2:
@@ -237,7 +237,7 @@ public  class Main {
                 System.out.println("3. Digite a nova quantidade em estoque:  ");
                 int novoQtdProduto = teclado.nextInt();;
                 teclado.nextLine();
-                prodSelecionado.setQtdProduto(novoQtdProduto);
+                prodSelecionado.setEstoque(novoQtdProduto);
                 System.out.println("Quantidade atualizada com sucesso, agora a quantidade é: "+novoQtdProduto);
                 break;
             case 4:

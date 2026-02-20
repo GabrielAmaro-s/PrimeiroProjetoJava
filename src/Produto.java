@@ -1,55 +1,50 @@
 public class Produto {
-    private String nomeProduto;
+    private String nome;
     private int idProduto;
     private String tipoProduto;
-    private int qtdProduto;
-    private double valorUnitario;
+    private double preco;
+    private int estoqueAtual;
 
-    public Produto(String nomeProduto, int idProduto, String tipoProduto, int qtdProduto, double valorUnitario){
-        this.nomeProduto = nomeProduto;
+    public Produto(String nome, int idProduto, String tipoProduto, double preco, int estoqueAtual){
+        this.nome= nome;
         this.idProduto = idProduto;
         this.tipoProduto = tipoProduto;
-        this.qtdProduto = qtdProduto;
-        this.valorUnitario = valorUnitario;
+        this.preco = preco;
+        this.estoqueAtual = estoqueAtual;
     }
 
     public void exibirDadosProduto(){
         System.out.println("+====== Produto ======+");
         System.out.println("ID:  "+idProduto);
-        System.out.println("Nome:  "+nomeProduto);
+        System.out.println("Nome:  "+nome);
         System.out.println("Tipo: "+tipoProduto);
-        System.out.println("Quantidade: "+qtdProduto);
-        System.out.println("Valor unitário: R$ "+valorUnitario);
+        System.out.println("Quantidade: "+estoqueAtual);
+        System.out.println("Valor unitário: R$ "+preco);
         System.out.println("+=====================+");
     }
     public int getIdProduto(){
         return idProduto;
     }
-    public String getNomeProduto(){
-        return nomeProduto;
+
+    public String getNome(){
+        return nome;
     }
 
-    public int getQtdProduto() {
-        return qtdProduto;
-    }
 
     public String getTipoProduto() {
         return tipoProduto;
     }
 
-    public double getValorUnitario() {
-        return valorUnitario;
+    public double getPreco() {
+        return preco;
     }
-    public void setNomeProduto(String nomeProduto){
-        this.nomeProduto = nomeProduto;
+
+    public void setNome(String nome){
+        this.nome = nome;
     }
 
     public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
-    }
-
-    public void setQtdProduto(int qtdProduto) {
-        this.qtdProduto = qtdProduto;
     }
 
     public void setTipoProduto(String tipoProduto) {
@@ -57,8 +52,26 @@ public class Produto {
     }
 
     public void setValorUnitario(double valorUnitario) {
-        this.valorUnitario = valorUnitario;
+        this.preco = preco;
     }
 
+    public int getEstoque() {
+        return estoqueAtual;
+    }
+
+    public void setEstoque(int estoqueAtual) {
+        this.estoqueAtual = estoqueAtual;
+    }
+
+    public boolean vender(int quantidade){
+        if(quantidade <= 0 || quantidade > estoqueAtual){
+             return false;
+        }
+            estoqueAtual -= quantidade;
+            return true;
+        }
+
+
+    }
 }
 
